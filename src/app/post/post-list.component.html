@@ -1,0 +1,16 @@
+<div class="post-list" *ngFor="let post of posts">
+  <a (click)="goToShow(post)">
+      <div>{{ post.title }}</div>
+      <div>
+        <p>
+            Description: <span>{{ post.description }}</span>
+        </p>
+      </div>
+      <div>
+        <p>
+            Last Updated At: {{ post.updated_at }}
+        </p>
+      </div>
+  </a>
+
+</div>

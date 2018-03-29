@@ -1,0 +1,27 @@
+<div class="jumbotron">
+    <h1 class="display-3">Create New Post</h1>
+    <p class="lead">Create simple post with the Rails  API and Angular FrontEnd</p>
+    <hr class="m-y-md">
+    <p></p>    
+</div>
+
+<div class="row">
+    <div class="col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+        <form (ngSubmit)="createPost(post)" #postForm='ngForm'>
+            <div class="form-group">
+                <label for="post-title"><h3> Post Title</h3></label>
+                <input type="text" class="form-control" required id="title"  name="title" placeholder="Post Title" #title ="ngModel" [(ngModel)] = "post.title" >
+                <div class="alert alert-danger" [hidden] = 'title.valid || title.pristine'><strong>Title is requered !</strong></div>
+            </div>
+            <div class="form-group">
+                <label for="post-description"><h3>Post Description</h3></label>
+                <textarea class="form-control" id="description" name="description" required
+                 #description = "ngModel" [(ngModel)] = "post.description" rows = "3" placeholder="Some Basic Description ....."></textarea>
+                 <div class="alert alert-danger" [hidden] = 'description.valid || description.pristine'><strong>Description is requered !</strong></div>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary" [disabled] = "!postForm.form.valid" [hidden]="submitted">Create</button>
+            </div>
+        </form>
+    </div>
+</div>
